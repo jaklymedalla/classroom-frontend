@@ -25,6 +25,7 @@ import { useNotificationProvider } from "./components/refine-ui/notification/use
 import { Toaster } from "./components/refine-ui/notification/toaster";
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
 import "./App.css";
+import Dashboard from "./pages/dashboard";
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
               }}
             >
               <Routes>
-                <Route index element={<WelcomePage />} />
+                <Route path="/" element={<Dashboard />} />
               </Routes>
               <Toaster />
               <RefineKbar />

@@ -12,7 +12,6 @@ import routerProvider, {
   UnsavedChangesNotifier,
   DocumentTitleHandler,
 } from "@refinedev/react-router";
-import { dataProvider } from "./providers/data";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { ForgotPassword } from "./pages/forgot-password";
@@ -24,9 +23,12 @@ import { Toaster } from "./components/refine-ui/notification/toaster";
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
 import "./App.css";
 import Dashboard from "./pages/Dashboard.tsx";
-import { BookOpen, Home } from "lucide-react";
+import { BookOpen, GraduationCap, Home } from "lucide-react";
 import SubjectsList from "./pages/subjects/List.tsx";
 import SubjectsCreate from "./pages/subjects/Create.tsx";
+import ClassesList from "./pages/classes/List.tsx";
+import ClassesCreate from "./pages/classes/Create.tsx";
+import {dataProvider} from "./providers/data.ts";
 
 function App() {
   return (
@@ -56,7 +58,15 @@ function App() {
                   list: '/subjects',
                   create: '/subjects/create',
                   meta: { label: 'Subjects', icon: <BookOpen /> }
-                }
+                },
+
+                {
+                  name: 'classes',
+                  list: '/classes',
+                  create: '/classes/create',
+                  meta: { label: 'Classes', icon: <GraduationCap /> }
+                },
+
               ]}
 
             >
@@ -67,10 +77,17 @@ function App() {
                   </Layout>
                 }>
                 <Route path="/" element={<Dashboard />} />
+
                   <Route path="subjects">
                       <Route index element={<SubjectsList />} />
                       <Route path='create' element={<SubjectsCreate />} />
                   </Route>
+
+                  <Route path="classes">
+                      <Route index element={<ClassesList />} />
+                      <Route path='create' element={<ClassesCreate />} />
+                  </Route>
+
                 </Route>
               </Routes>
               <Toaster />

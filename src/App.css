@@ -182,16 +182,17 @@
   }
 
   .search-field {
-  @apply relative w-full;
-  }
+  @apply relative  w-full sm:w-64;;
+}
 
 .search-field .search-icon {
   @apply absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-primary;
   }
 
   .actions-row {
-  @apply flex flex-col gap-3 w-full;
-  }
+  /* Stacked on mobile, side-by-side on desktop, stretching elements evenly on small viewports */
+  @apply flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto sm:justify-end;
+}
 
 
   .sign-up {
@@ -387,9 +388,11 @@
     }
   }
 
-  .intro-row {
-  @apply flex flex-col gap-4 w-full;
-  }
+ .intro-row {
+  /* Stacked by default (mobile), row layout from small screens up */
+  @apply flex flex-col sm:flex-row justify-between sm:items-center gap-4 w-full;
+}
+
 
   .class-view {
     @apply container mx-auto pb-8 px-2 sm:px-4;
